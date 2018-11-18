@@ -1,0 +1,35 @@
+{
+	"manifest_version": 2,
+	"name": "Feedback Overlay",
+	"description": "Display overlay of user feedback",
+	"version": "2.0",
+	"browser_action": {
+		"default_popup": "index.html",
+		"default_icon": "thumb-icon.png"
+	},
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"storage",
+		"https://*/"
+	],
+	"content_scripts": [
+		{
+            "css": [
+                "feedback-overlay.css"
+            ],
+			"js": [
+				"/static/js/main.js"
+			],
+			"matches": [
+				"https://*.lifewire.com/*",
+				"https://*.thebalance.com/*",
+				"https://*.thespruce.com/*",
+				"https://*.thoughtco.com/*",
+				"https://*.tripsavvy.com/*",
+				"https://*.verywell.com/*"
+			]
+		}
+	],
+	"content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'"
+}

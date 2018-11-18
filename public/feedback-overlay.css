@@ -1,0 +1,73 @@
+#feedback-overlay {
+    position: fixed;
+    z-index: 99999999;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.feedback-overlay__rating,
+.feedback-overlay__thumb {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+}
+
+.feedback-overlay__rating {
+    line-height: 25px;
+}
+
+.feedback-overlay__thumb:after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    background: no-repeat url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDJiODQ3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiB2aWV3Qm94PSIwIDAgNDIuMDMgNDEuMzMiPgogICAgPHBhdGggZD0iTTE0LjYzLjdBOSw5LDAsMCwwLDkuNDgsMi4xMSwyMy42NywyMy42NywwLDAsMCw1LjUzLDYsMjMsMjMsMCwwLDAsLjE2LDE4YTIwLjUzLDIwLjUzLDAsMCwwLDExLjUsMjEuMDhjNC41MiwyLjA3LDkuOTIsMi4yNSwxNC43NywxLjQ0QTE4LjQ0LDE4LjQ0LDAsMCwwLDM4LDMzLjc0QzQzLjMxLDI3LDQzLDE3LjYyLDM5LjIxLDEwLjE3YTE4LjIyLDE4LjIyLDAsMCwwLTkuODYtOC44MUMyNC41OC0uNDksMTkuMzYtLjE5LDE0LjQyLjczYy0xLC4xOS0uNTcsMS43MS40MiwxLjUyLDcuNi0xLjQxLDE2LjQ1LS43MiwyMS4zOSw2LjA2LDQuMzUsNiw1LjgzLDE0LjkyLDIuMzUsMjEuNmExNy4yMiwxNy4yMiwwLDAsMS04LjUyLDgsMjQuOTEsMjQuOTEsMCwwLDEtMTQuNDYuODksMTguNzIsMTguNzIsMCwwLDEtMTQtMTcsMjEuMTUsMjEuMTUsMCwwLDEsMy43LTEzQTI4LjgzLDI4LjgzLDAsMCwxLDkuNTEsNC4xM2E3LjIsNy4yLDAsMCwxLDUuMTItMS44NS43OS43OSwwLDAsMCwwLTEuNThaIj48L3BhdGg+CiAgICA8cGF0aCBkPSJNNi42OCwxOC41MmwtLjQ0LDguNjJjLS4wNSwxLDEuNTMsMSwxLjU4LDBsLjQ0LTguNjJjLjA1LTEtMS41My0xLTEuNTgsMFoiPjwvcGF0aD4KICAgIDxwYXRoIGQ9Ik0yOS40MSwzMS4zYTE3LDE3LDAsMCwxLTMuNTIsMGMtMS4xNCwwLTIuMjguMTYtMy40My4xNWE3LjkxLDcuOTEsMCwwLDEtMy4yNS0uNUExMy4yLDEzLjIsMCwwLDEsMTcsMjkuMjRDMTMuOSwyNi44NywxMC4zNywyOSw3LDI5bC43OS43OWE2LDYsMCwwLDEsLjA1LTEuMTdjLjA5LTEtMS40OS0xLTEuNTgsMGE1Ljg2LDUuODYsMCwwLDAtLjA1LDEuMTcuODEuODEsMCwwLDAsLjc5Ljc5YzIsLjA1LDMuODItLjYzLDUuNzYtLjgzYTQuNDcsNC40NywwLDAsMSwzLC41NmMuNzUuNDgsMS4zMywxLjE4LDIuMDYsMS42OSwxLjYxLDEuMTMsMy43OCwxLjE3LDUuNjcsMS4wOSwxLjE0LDAsMi4yOC0uMTYsMy40My0uMTJhMTAuODUsMTAuODUsMCwwLDAsMy0uMWMxLS4yMy41Ny0xLjc1LS40Mi0xLjUyWiI+PC9wYXRoPgogICAgPHBhdGggZD0iTTcuNjIsMTkuMDhjMi4zMywwLDQuNzEuMTIsNywwLDEuODktLjEzLDIuODgtMS40Nyw0LjA5LTIuNzUsMi40Ny0yLjYzLDQuNzItNS4yOCw1LjExLTksLjA3LS42NS4yMi0xLjY3LDEuMDYtMSwuNDIuMzMuNTUsMS4zLjYsMS43N2E5LjMsOS4zLDAsMCwxLS4zOSwzLjI1Yy0uMzUsMS4zNy0xLjM5LDMuMzItLjI4LDQuNnMzLjQ0LjgzLDUsLjkyYy45My4wNSwyLjkyLDAsMy4yOSwxLjE2LjI3Ljg0LS43NSwxLjQyLS44OCwyLjE4LS4xOCwxLDEuMzQsMS40MiwxLjUyLjQyLjA2LS4zMS40Mi0uNjIuNTctLjlhMy4yNSwzLjI1LDAsMCwwLC4zNi0xLjExLDIuNDIsMi40MiwwLDAsMC0uNTQtMS45Yy0xLjI4LTEuNTMtMy44My0xLjUtNS42NS0xLjUtLjYxLDAtMS43LjMtMi4yMy0uMTNzLS4yLTEuNDMsMC0yQTE5LjkzLDE5LjkzLDAsMCwwLDI3LDkuNzljLjIxLTEuNjYuMDYtNC0xLjQ5LTUuMDktMS4zOC0uOTMtMi44MS4xOS0zLjE0LDEuNmEyNC44NywyNC44NywwLDAsMS0uNTUsMy4wNywxMS40NSwxMS40NSwwLDAsMS0xLjY2LDIuODksMzIuNzksMzIuNzksMCwwLDEtMi4yOCwyLjYyLDExLjU5LDExLjU5LDAsMCwxLTIuMzUsMi4zNWMtMSwuNTgtMi44MS4yNi00LC4yNmgtNGEuNzkuNzksMCwwLDAsMCwxLjU4WiI+PC9wYXRoPgogICAgPHBhdGggZD0iTTMyLjYxLDIxLjQyYzEsLjc3LS4yMSwyLjE1LS43MiwyLjczYS44LjgsMCwwLDAsLjM1LDEuMzJjMS4xMy40Ny0xLjIzLDIuNjctMS42MywzYS44MS44MSwwLDAsMCwwLDEuMTJjLjY0LjgxLS44MywxLjU5LTEuMzgsMS45YS43OS43OSwwLDAsMCwuOCwxLjM2YzEuNjMtLjkyLDMuMTMtMi41OCwxLjctNC4zOHYxLjEyYzEuNTYtMS4yOCwzLjgxLTQuNDUuOTQtNS42NEwzMywyNS4yNmMxLjM1LTEuNTMsMi4zNS0zLjcxLjQtNS4yLS44MS0uNjItMS41OS43NS0uOCwxLjM2WiI+PC9wYXRoPgo8L3N2Zz4=);
+}
+
+.feedback-overlay__thumb--down {
+    margin-right: 0;
+}
+
+.feedback-overlay__thumb--down:after {
+    transform: rotate(180deg); /* turn upside down */
+    filter: hue-rotate(240deg) saturate(5); /* rotates color wheel, changing from green to red */
+}
+
+.feedback-overlay__comments {
+    display: none;
+    max-width: 250px;
+    max-height: 350px;
+    overflow: scroll;
+    background: #efefef;
+    padding: 5px;
+    border: 1px solid;
+}
+
+.feedback-overlay__comments > li {
+    margin: 5px 0;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.feedback-overlay__comments > li:first-child {
+    margin-top: 0;
+}
+
+.feedback-overlay__comments > li:last-child {
+    margin-bottom: 0;
+    border: none;
+}
+
+.feedback-overlay__expand-comment {
+    padding-right: 3px;
+    color: blue;
+    cursor: pointer;
+}
+
+.feedback-overlay__expand-comment-icon {
+    display: inline-block;
+    width: 10px;
+    text-align: center;
+}
