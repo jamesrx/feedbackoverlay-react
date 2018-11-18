@@ -148,6 +148,7 @@ class FeedbackOverlay extends React.Component {
         const displayComments = this.state.commentsExpanded ? 'block' : 'none';
         const rating = Math.round((this.state.thumbsUp / (this.state.thumbsUp + this.state.thumbsDown)) * 1000) / 10 || 0;
         const ratingColor = this.getColor(this.state.thumbsUp, this.state.thumbsDown);
+        const displayCommentToggle = this.state.thumbsDown ? 'block' : 'none';
 
         return (
             <div id="feedback-overlay" style={{display: displayOverlay}}>
@@ -164,7 +165,7 @@ class FeedbackOverlay extends React.Component {
                 <ThumbCount
                     suffix="down"
                     count={this.state.thumbsDown}>
-                    <span className="feedback-overlay__expand-comment" onClick={this.toggleComments}>
+                    <span className="feedback-overlay__expand-comment" style={{display: displayCommentToggle}} onClick={this.toggleComments}>
                         [<span className="feedback-overlay__expand-comment-icon">
                             {this.state.commentsExpanded ? '-' : '+'}
                         </span>]
