@@ -145,10 +145,10 @@ class FeedbackOverlay extends React.Component {
 
     render() {
         const displayOverlay = this.state.hideOverlay || !this.state.isValidDomain ? 'none' : 'block';
-        const displayComments = this.state.commentsExpanded ? 'block' : 'none';
+        const displayComments = this.state.commentsExpanded && this.state.thumbsDown ? 'block' : 'none';
+        const displayCommentToggle = this.state.thumbsDown ? 'block' : 'none';
         const rating = Math.round((this.state.thumbsUp / (this.state.thumbsUp + this.state.thumbsDown)) * 1000) / 10 || 0;
         const ratingColor = this.getColor(this.state.thumbsUp, this.state.thumbsDown);
-        const displayCommentToggle = this.state.thumbsDown ? 'block' : 'none';
 
         return (
             <div id="feedback-overlay" style={{display: displayOverlay}}>
