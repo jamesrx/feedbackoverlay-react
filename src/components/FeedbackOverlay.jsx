@@ -110,8 +110,12 @@ class FeedbackOverlay extends React.Component {
       // sort by newest first
       commentList.sort((a, b) => comments[b].created - comments[a].created);
 
-      // save text to display for comments
-      commentList = commentList.map(comment => `${comment} ${comments[comment].count > 1 ? `(x${comments[comment].count})` : ''}`);
+      // save list of jsx to display for comments
+      commentList = commentList.map(comment => (
+        <li>
+          {`${comment} ${comments[comment].count > 1 ? `(x${comments[comment].count})` : ''}`}
+        </li>
+      ));
     }
 
     this.setState({
@@ -163,7 +167,7 @@ class FeedbackOverlay extends React.Component {
     return (
       <div className={style.root} style={{ display: displayOverlay }}>
         <ul className={style.comments} style={{ display: displayComments }}>
-          {comments.map(comment => <li>{comment}</li>)}
+          {comments}
         </ul>
         <div className={style.rating} style={{ color: ratingColor }}>
           {rating}
