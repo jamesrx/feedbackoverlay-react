@@ -11,15 +11,15 @@
 		"tabs",
 		"activeTab",
 		"storage",
-		"https://*/"
+		"https://selene-prod-us-east-1.internal1.continual.app.prod.aws.dotdash.com/"
 	],
 	"content_scripts": [
 		{
-            "css": [
-                "feedback-overlay.css"
-            ],
+			"css": [
+				"main.css"
+			],
 			"js": [
-				"/static/js/main.js"
+				"main.js"
 			],
 			"matches": [
 				"https://*.lifewire.com/*",
