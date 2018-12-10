@@ -12,7 +12,7 @@ class SettingsForm extends React.Component {
       thespruce: 'The Spruce',
       thoughtco: 'ThoughtCo',
       tripsavvy: 'TripSavvy',
-      verywell: 'VeryWell',
+      verywellhealth: 'VeryWell - Health',
     };
   }
 
