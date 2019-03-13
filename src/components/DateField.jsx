@@ -25,8 +25,12 @@ const DateField = ({
 
 DateField.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onDateChange: PropTypes.func.isRequired,
+};
+
+DateField.defaultProps = {
+  value: '',
 };
 
 export default DateField;

@@ -39,15 +39,15 @@ class FeedbackOverlay extends React.Component {
     const key = Object.keys(settings)[0];
 
     // update state with the new setting value
-    this.setState({ [key]: settings[key].newValue });
-
-    if (settings.domains) {
-      // domain settings have changed, so re-check domain
-      this.checkDomainIsValid(settings.domains.newValue);
-    } else if (settings.fromDate || settings.toDate) {
-      // if a date has been updated, fetch new data for those dates
-      this.fetchData();
-    }
+    this.setState({ [key]: settings[key].newValue }, () => {
+      if (settings.domains) {
+        // domain settings have changed, so re-check domain
+        this.checkDomainIsValid(settings.domains.newValue);
+      } else if (settings.fromDate || settings.toDate) {
+        // if a date has been updated, fetch new data for those dates
+        this.fetchData();
+      }
+    });
   }
 
   fetchData = () => {
@@ -96,11 +96,12 @@ class FeedbackOverlay extends React.Component {
         if (comments[item.comment]) {
           comments[item.comment].count += 1;
         } else {
-          comments[item.comment] = { count: 1 };
+          comments[item.comment] = {
+            count: 1,
+            created: item.created, // save created time for sorting
+            id: item.ugcUserId + item.created, // create unique ID for key
+          };
         }
-
-        // save created time for sorting
-        comments[item.comment].created = item.created;
       }
     });
 
@@ -112,7 +113,7 @@ class FeedbackOverlay extends React.Component {
 
       // save list of jsx to display for comments
       commentList = commentList.map(comment => (
-        <li>
+        <li key={comments[comment].id}>
           {`${comment} ${comments[comment].count > 1 ? `(x${comments[comment].count})` : ''}`}
         </li>
       ));

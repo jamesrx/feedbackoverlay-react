@@ -16,7 +16,7 @@ const Thumb = ({
 Thumb.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  count: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 Thumb.defaultProps = {
